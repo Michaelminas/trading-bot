@@ -84,7 +84,7 @@ CONFIG = {
 
     # Execution
     'update_interval': 60,  # Check every 60 seconds
-    'testnet': False,  # Set True for paper trading
+    'testnet': True,  # Set True for paper trading, False for live
 }
 
 # =============================================================================
@@ -112,7 +112,7 @@ def calculate_indicators(df):
     df['stoch_d'] = df['stoch_k'].rolling(window=3).mean()
 
     # ADX
-    df['tr'] = df[['high', 'low']].apply(lambda x: x[0] - x[1], axis=1)
+    df['tr'] = df[['high', 'low']].apply(lambda x: x.iloc[0] - x.iloc[1], axis=1)
     df['atr'] = df['tr'].rolling(14).mean()
     df['plus_dm'] = df['high'].diff().where(df['high'].diff() > 0, 0)
     df['minus_dm'] = -df['low'].diff().where(-df['low'].diff() > 0, 0)
