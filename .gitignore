@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyc
+*.pyo
+*.pyd
+
+# Logs
+*.log
+trading_bot.log
+
+# Data files
+*.csv
+trades.csv
+
+# Environment (DON'T commit real keys to public repo!)
+# .env
+
+# Temporary files
+*.tmp
+*.swp
+*~
